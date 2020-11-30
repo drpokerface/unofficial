@@ -166,7 +166,8 @@ http://www.templatemo.com/tm-486-new-event
 		  
     const initSellButton = () => {    
       $('.sell-button').click(() => {
-	const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
         web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction({
         }, (err, transactionId) => {
           if  (err) {
@@ -181,7 +182,8 @@ http://www.templatemo.com/tm-486-new-event
     }
     const initPayButton = () => {    
       $('.pay-button').click(() => {
-	const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountEth = document.getElementById("amount").value;
         //const amountEth = 1
         web3.eth.contract(abi).at(contract_address).buyVirtualGold.sendTransaction({
@@ -226,7 +228,7 @@ http://www.templatemo.com/tm-486-new-event
 				<span class="icon icon-bar"></span>
 			</button>
 		</div>
-		<h4><img class="wow fadeIn" data-wow-delay="0s" src="images/vg.png" width="40" height="40"><span class="wow fadeIn" data-wow-delay="2.4s" id='account' style="color:white" class="smoothScroll"></span><span class="wow fadeIn" data-wow-delay="2.4s" id='status' style="color:white" class="smoothScroll"></h4></span>
+		<h4><img class="wow fadeIn" data-wow-delay="2.4s" src="images/vg.png" width="40" height="40"><span class="wow fadeIn" data-wow-delay="2.4s" id='account' style="color:white" class="smoothScroll"></span><span class="wow fadeIn" data-wow-delay="2.4s" id='status' style="color:white" class="smoothScroll"></h4></span>
 		<!--<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><p id='account' style="color:white" class="smoothScroll"></p></li>
@@ -249,18 +251,12 @@ http://www.templatemo.com/tm-486-new-event
 
 			<div class="col-md-12 col-sm-12">
 				<br><br><br><br>
-				<div>
-				<h1 class="wow fadeIn" data-wow-delay="0.4s" style="font-size:96px;"><span class="wow fadeIn" data-wow-delay="0s"><img src="images/vg.png" width="125" height="125"></span><span style="color:white">virtual</span><span style="color:gold">gold</span></h1>
-				<h3 class="wow fadeIn" data-wow-delay="0.8s"><span style="color:#4267b2">DECENTRALIZED | TRANSPARENT | LUCRATIVE</span></h3><br><span>
-				<h2 class="wow fadeIn" data-wow-delay="1.2s"><span style="color:white">A revolutionary new type of <span style="color:gold">digital asset</span> stored on the blockchain whose <span style="color:gold">value</span> cannot depreciate. It <span style="color:gold">can only grow</span></span></span></h2><br><br>
-				<a href="https://virtualgold.medium.com/virtual-gold-potentially-the-most-lucrative-project-in-the-cryptocurrency-space-4c8bb6576cd2" class="btn btn-lg btn-default smoothScroll wow fadeIn" style="color:#4267b2" data-wow-delay="1.6s" style="height: 42px; width: 200px" >MEDIUM ARTICLE</a>
-				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" style="color:gold" data-wow-delay="1.6s" style="height: 42px; width: 200px">BUY VIRUAL GOLD</a>
-				<a href="https://t.me/VirtualGoldOfficial" class="btn btn-lg btn-default smoothScroll wow fadeIn" style="color:#4267b2" data-wow-delay="1.6s" style="height: 42px; width: 200px">TELEGRAM</a>
-				</div><div>
-				<!--<button style="background-color:#4267b2;color:white;width:200px; height:25px;" onclick="location.href='http://www.example.com'" type="button">www.example.com</button>-->
-				<a href="https://www.instagram.com/virtualgoldofficial/" class="btn btn-lg btn-default smoothScroll wow fadeIn" style="color:#4267b2" data-wow-delay="2s" style="height: 42px; width: 200px">INSTAGRAM</a>
-				<a href="https://virtualgoldbackup.site/" class="btn btn-lg btn-default smoothScroll wow fadeIn" style="color:#4267b2" data-wow-delay="2s" style="height: 42px; width: 200px">BACKUP SITE</a><br>
-				</div>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s" style="font-size:96px;"><span class="wow fadeIn" data-wow-delay="2s"><img src="images/vg.png" width="125" height="125"></span><span style="color:white">virtual</span><span style="color:gold">gold</span></h1>
+				<h2 class="wow fadeIn" data-wow-delay="0.8s"><center>DECENTRALIZED | <span style="color:white">TRANSPARENT</span> | LUCRATIVE</center></h2><br><span>
+				<h2 class="wow fadeIn" data-wow-delay="1.2s">A revolutionary new type of <span style="color:gold">digital asset</span> stored on the blockchain <span style="color:gold">whose value</span> cannot depreciate. It <span style="color:gold">can only grow</span></span></h2><br>
+				<a href="#detail" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">LEARN MORE</a>
+				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUAL GOLD</a>
+				<a href="#overview" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">TELEGRAM</a><br>
 			</div>
 
 
@@ -273,6 +269,7 @@ http://www.templatemo.com/tm-486-new-event
     OVERVIEW SECTION   
 ============================== -->
 <section id="overview" class="parallax-section">
+	<center><h1 class="wow bounceIn">Current Price<div id="message"></div></h1></center><br><br><br>
 	<div class="container">
 		<div class="row">
 
@@ -290,7 +287,7 @@ http://www.templatemo.com/tm-486-new-event
 				<p>Use referal for getting back 1.5% of investment(See below for details)</p>	
 			</div>
 
-		</div>  
+		</div>
 	</div>
 </section>
 
@@ -302,13 +299,13 @@ http://www.templatemo.com/tm-486-new-event
 	<div class="container">
 		<div class="row">
 				<div class="wow bounceIn"><center><img src="images/vg.png" width="90" height="90"></center>
-				<center><h2><span style="color:gold">Introducing Virtualgold</span></h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3><span style="color:white">Virtualgold is a digital asset that is stored on the ethereum blockchain. It uses smart contract technology to ensure complete transparency, security and decentralized ownership. But unlike other standard cryptocurrencies whose value is determined by supply and demand, virtual gold utilizes a very unique and innovative model to sustainably increase its value. At a very fundamental level virtualgold has been created in such a way that its price can never reduce, it can only grow. The rate of increase however may fluctuate based upon demand.</span></h3></p><br><br><br><p style="border-bottom: 1px solid white; padding-bottom: 20px; margin-bottom: 20px"><br></div><br>
+				<center><h2><span style="color:white">Introducing VirtualGold</span></h2></center></div>
+				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3><span style="color:white">Virtual gold is a digital asset that is stored on the ethereum blockchain. It uses smart contract technology to ensure complete transparency, security and decentralized ownership. But unlike other standard cryptocurrencies whose value is determined by supply and demand, virtual gold utilizes a very unique and innovative model to sustainably increase its value. At a very fundamental level virtual gold has been programmed in such a way that its price can never reduce, it can only grow. The rate of increase may fluctuate based upon demand. Early investments would observe greater and quicker growth as compared to subsequent ones.</span></h3></p><br><br><br><hr><br><br><br></div>
 
 		      <!--  <div class="wow fadeInLeft col-md-4" data-wow-delay="0.3s">-->
-				<div class="wow bounceIn"><center><i class="fa fa-info-circle"></i></center>
-				<center><h2 style="color:gold">How does the system work?</h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3 style="color:white">66.6% of the ETH you invest would be converted to virtualgold at the conversion rate. The remaining ETH is used as a virtualgold royalty fee. The main reason why this fee is being charged is for boosting the price of virtualgold. Whenever a new person invests into the system a portion of their investment is paid out to all virtualgold holders in proportion to the size of their holdings. This money is indirectly paid to them by increasing the amount of ETH backing the virtualgold price within the smart contract. This is what causes the price of virtualgold to increase after every investment. There is no upper limit your profits! The longer you hold on to your virtualgold the greater would be your return on investment. Your virtualgold and the corresponding value in ETH backing its value is always secured within the smart contract. Also, 66.6% of your investment always remains untouched. This is done to reduce risk on investment. So under no circumstance even if you are the last person to join the system you cannot lose more than 33.3% of your investment.</h3></p><br><br><br></div><p style="border-bottom: 1px solid white; padding-bottom: 20px; margin-bottom: 20px"><br></p><br><br>
+				<div class="wow bounceIn"><center><i class="fa fa-exchange"></i></center>
+				<center><h2>How does the system work?</h2></center></div>
+				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3>66% of the ethereum you invest will be converted to virtual gold at the conversion rate. The remaining ethereum is used for virtual gold mining fees. The main reason why this fee is being charged is for boosting the price of virtual gold. Whenever a new person invests into the system a portion of their investment is paid out to all virtual gold holders in proportion to the size of their holdings. This money is indirectly paid to them by increasing the amount of ethereum backing their virtual gold within the smart contract. This is what causes the price of virtual gold to increase after every investment. There is no upper limit your profits! The longer you hold on to your virtual gold the greater would be your return on investment. Your virtual gold and the corresponding value in ethereum backing its value is always secured within the smart contract. Also, 66% of your investment always remains untouched. This is done to reduce risk on investment. So under no circumstance even if you are the last person to join the system you cannot lose more than 33% of your investment.</h3></p><br><br><br><hr><br><br><br></div>
 			<!--</div>-->
 
 			<!-- <div class="wow fadeInUp col-md-4" data-wow-delay="0.6s">
@@ -320,8 +317,8 @@ http://www.templatemo.com/tm-486-new-event
 
 			<!--<div class="wow fadeInRight col-md-4" data-wow-delay="0.9s">-->
 				<div class="wow bounceIn"><center><i class="fa fa-lock"></i></center>
-				<center><h2 style="color:gold">Security</h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3 style="color:white">Virtualgold uses smart contract technology to ensure maximum security and decentralized ownership. Additionally, our smart contract would be made publicly viewable. This means that anyone/everyone would be free to audit our code whenerver they like. Therefore any form of scam or malpractice is impossible.</h3></p></div>
+				<center><h2>Security</h2></center></div>
+				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3>Virtual gold uses smart contract technology to ensure complete transparency, security and decentralized ownership. All the code in the smart contract is publicly viewable. Therefore any form of scam or malpractice is impossible.</h3></p></div>
 			<!--</div>-->
 
 		</div>
@@ -342,22 +339,24 @@ http://www.templatemo.com/tm-486-new-event
 			<div class="wow bounceIn col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
 				<div class="section-title">
 					<h2>Frequently Asked Questions</h2>
-					<p>If you have any further question feel free to ask us on our telegram group</p>
+					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
 				</div>
 			</div>
 
 			<div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.3s">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
   					<div class="panel panel-default">
    						<div class="panel-heading" role="tab" id="headingOne">
       						<h4 class="panel-title">
         						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          							 If others sell their virtualgold does the price drop?
+          							 Why is USDT used instead of ethereum?
         						</a>
       						</h4>
     					</div>
    						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       						<div class="panel-body">
-        						<p>In short the answer is no. At a very fundamental level virtualgold is different from other blockchain assets. The price is not dictated by supply and demand. Once people buy virtualgold there is a certain amount of ETH backing its value within the smart contract. As new people join, a portion of their investment is distributed to all holders indirectly by increasing the amount of ETH backing the price of virtualgold. This way for the amount of virtualgold you own, it's equivalent value in ETH is always secured in the smart contract. Assume the current price for 1gram of virtual gold is $100 dollars and you own 2grams. Even if everyone sells their holdings $200 will still be left within the contract exclusively for you. This value can never go down as people sell. But it would increase as more and more people buy.</p>
+        						<p>The main reason why we use usdt to back the virtual gold in the smart contract is because usdt is a stable coin pegged to us dollar. If we had build the system using ethereum or some other cryptocurrency even if you cash out 10x what you invested it may not be worth 10x due to fluctuations in the value of non-stable cryptocurrencies. Therefore in order to make the project a long and sustainable project, we felt it would be wiser to use the most popular stable cryptocurrency-usdt.</p>
       						</div>
    						 </div>
  					</div>
@@ -372,7 +371,7 @@ http://www.templatemo.com/tm-486-new-event
     					</div>
    						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       						<div class="panel-body">
-                            	<p>Nope it is not possible. Once you buy virtualgold your holdings are uniquely linked to your wallet, and stored in the virtualgold smart contract on the ethereum blockchain. You wouldn't be receiving any tokens in your wallet. Therefore it cannot be transferred. Virtualgold is not a traditional cryptocurrency used for facilitating transactions. The main motivation behind virtualgold was to create a digital asset solely for investors. Virtualgold is more like the blockchain equivalent of a real world appreciating asset like land or gold where investors buy in order to sell at a higher price later.</p>
+                            	<p>Nope it is not possible. Once you buy virtual gold your holdings are uniquely linked only to your wallet, until you chose to cash out(aka sell). It cannot be transferred. Virtual gold is not a traditional cryptocurrency used for facilitating transactions. The main motivation behind virtual gold was to create a digital asset solely for investors. Virtual gold is more like the blockchain equivalent of a real world appreciating asset like land or gold where investors buy in order to sell at a higher price later.</p>
       						</div>
    						 </div>
  					</div>
@@ -387,7 +386,7 @@ http://www.templatemo.com/tm-486-new-event
     					</div>
    						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       						<div class="panel-body">
-                            	<p>Although everybody's investment grows with time, the rate of growth of of virtualgold is inversely proportionate to the number of virtual gold holders. Therefore those investors who invest when there are fewer holders(when there is lesser money in the smart contact), would observe a quicker growth in investment. Therefore it would be more lucrative to invest early when there are not many holders.</p>
+                            	<p>Although everybody's investment grows with time, the rate of growth of of virtual gold is inversely proportionate to the number of virtual gold holders. Therefore those investors who invest when there are fewer holders(when there is lesser money in the smart contact), would observe a quicker growth in investment. Therefore the earlier the investment the more lucrative it would be.</p>
       						</div>
    						 </div>
  					 </div>
@@ -409,14 +408,14 @@ http://www.templatemo.com/tm-486-new-event
 		<div class="row">
 
 			<div class="wow bounceIn col-md-12 col-sm-12">
-				<center><div class="section-title">
-					<h2 style="color:gold">Our Referral Program</h2>
-					<p style="color:#4267b2; font-size:25px;">Your referral code is your ethereum wallet address</p>
-				</div></center>
+				<div class="section-title">
+					<h2>Join Our Referral Program and Earn Bitocin</h2>
+					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
+				</div>
 			</div>
 
-			<div class="wow fadeIn" data-wow-delay="0.3s">
-				<h3 style="color:white">Tell others about virtualgold and ask them to enter your wallet address in the referral code section just above the invest button. This way you would recieve a <span style="color:gold">bonus of 3% of every investment</span> made with your referral code. Additionally the investor who invests using your referral code would recieve a <span style="color:gold">1% bonus.</span> This is done to incentivize investors to use your referral code. All bonuses are paid in virtualgold.</h3>
+			<div class="wow fadeIn col-md-3 col-sm-6 col-xs-6" data-wow-delay="0.3s">
+				<img src="images/sponsor-img1.jpg" class="img-responsive" alt="sponsors">	
 			</div>
 		</div>
 	</div>
@@ -435,14 +434,17 @@ http://www.templatemo.com/tm-486-new-event
 		<div class="row">
 
 			<div class="col-md-12 col-sm-12">
-				<center><p class="wow fadeIn" data-wow-delay="0.6s">Copyright &copy; 2020 Virtualgold 
+				<p class="wow fadeIn" data-wow-delay="0.6s">Copyright &copy; 2016 Your Company 
                     
+                    | Design: <a rel="nofollow" href="http://www.templatemo.com/page/1" target="_parent">Templatemo</a></p>
 
-				<cetner><ul class="social-icon">
-					<li><a href="https://www.instagram.com/virtualgoldofficial/" class="fa fa-instagram wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="https://t.me/VirtualGoldOfficial" class="fa fa-paper-plane wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="https://virtualgold.medium.com/virtual-gold-potentially-the-most-lucrative-project-in-the-cryptocurrency-space-4c8bb6576cd2" class="fa fa-medium wow fadeIn" data-wow-delay="0.3s"></a></li>
-				</ul></center>
+				<ul class="social-icon">
+					<li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-twitter wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-dribbble wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-behance wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-google-plus wow fadeIn" data-wow-delay="0.3s"></a></li>
+				</ul>
 
 			</div>
 			
