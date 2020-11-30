@@ -166,6 +166,7 @@ http://www.templatemo.com/tm-486-new-event
 		  
     const initSellButton = () => {    
       $('.sell-button').click(() => {
+	const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
         web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction({
         }, (err, transactionId) => {
           if  (err) {
@@ -180,6 +181,7 @@ http://www.templatemo.com/tm-486-new-event
     }
     const initPayButton = () => {    
       $('.pay-button').click(() => {
+	const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountEth = document.getElementById("amount").value;
         //const amountEth = 1
         web3.eth.contract(abi).at(contract_address).buyVirtualGold.sendTransaction({
