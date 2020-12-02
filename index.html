@@ -37,7 +37,7 @@ http://www.templatemo.com/tm-486-new-event
 	$('#account').html('');  
         try {
           await ethereum.enable();
-	  var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice.call();
+	  var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice;
           initPayButton()
 	  initSellButton()
 	  $('#status').html('Wallet Connected')
