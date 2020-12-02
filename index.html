@@ -37,9 +37,7 @@ http://www.templatemo.com/tm-486-new-event
 	$('#account').html('');  
         try {
           await ethereum.enable();
-	  var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice;
 	  $('#price1').html('price');
-	  $('#price2').html(price); 
           initPayButton()
 	  initSellButton()
 	  $('#status').html('Wallet Connected')
@@ -60,6 +58,8 @@ http://www.templatemo.com/tm-486-new-event
         // paymentAddress is where funds will be send to
         const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountVG = document.getElementById("sellAmount").value;
+	var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice;
+	$('#price2').html(price); 
         web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction(amountVG,{
         }, (err, transactionId) => {
           if  (err) {
