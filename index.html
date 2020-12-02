@@ -31,8 +31,7 @@ http://www.templatemo.com/tm-486-new-event
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
-	web3.eth.contract(abi).at(contract_address).getMessage().call().then(function(t){ $('#total').html(t);});
-	      
+	var result = web3.eth.contract(abi).at(contract_address).getMessage.call({from: web3.eth.accounts[0], gas:3000000}, function(err, res){ console.log(res) });
 	//var owner = myContractInstance.total.call();
 	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
 	//$('#price').html('price');  
@@ -162,7 +161,7 @@ http://www.templatemo.com/tm-486-new-event
     OVERVIEW SECTION   
 ============================== -->
 <section id="overview" class="parallax-section">
-	<center><h1 class="wow bounceIn">Current Price<div id="message"><p id="total"></p><p id="total2"></p></div></h1></center><br><br><br>
+	<center><h1 class="wow bounceIn">Current Price<div id="message"><p id="price1"></p><p id="price2"></p></div></h1></center><br><br><br>
 	<div class="container">
 		<div class="row">
 
