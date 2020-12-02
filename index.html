@@ -38,6 +38,8 @@ http://www.templatemo.com/tm-486-new-event
         try {
           await ethereum.enable();
 	  var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice;
+	  $('#price1').html('price');
+	  $('#price2').html(price); 
           initPayButton()
 	  initSellButton()
 	  $('#status').html('Wallet Connected')
@@ -145,7 +147,7 @@ http://www.templatemo.com/tm-486-new-event
 				<h2 class="wow fadeIn" data-wow-delay="0.8s"><center>DECENTRALIZED | <span style="color:white">TRANSPARENT</span> | LUCRATIVE</center></h2><br><span>
 				<h2 class="wow fadeIn" data-wow-delay="1.2s">A revolutionary new type of <span style="color:gold">digital asset</span> stored on the blockchain <span style="color:gold">whose value</span> cannot depreciate. It <span style="color:gold">can only grow</span></span></h2><br>
 				<a href="#detail" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">LEARN MORE</a>
-				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUAL GOLD</a>
+				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUALGOLD</a>
 				<a href="#overview" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">TELEGRAM</a><br>
 			</div>
 
@@ -159,7 +161,7 @@ http://www.templatemo.com/tm-486-new-event
     OVERVIEW SECTION   
 ============================== -->
 <section id="overview" class="parallax-section">
-	<center><h1 class="wow bounceIn">Current Price<div id="message"><p id="price"></p></div></h1></center><br><br><br>
+	<center><h1 class="wow bounceIn">Current Price<div id="message"><p id="price1"></p><p id="price2"></p></div></h1></center><br><br><br>
 	<div class="container">
 		<div class="row">
 
