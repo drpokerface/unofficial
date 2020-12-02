@@ -34,9 +34,9 @@ http://www.templatemo.com/tm-486-new-event
 	web3.eth.contract(abi).at(contract_address);
 	let price = contract.virtualGoldPrice.call();
 	let quantityOwned = contract.quantity[userAccount].call();
-	$('#price').html(price)  
-	$('#quantityOwned').html(quantityOwned)  
-	$('#account').html('')  
+	$('#price').html(price);  
+	$('#quantityOwned').html(quantityOwned);  
+	$('#account').html('');  
         try {
           await ethereum.enable();
           initPayButton()
