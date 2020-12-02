@@ -32,6 +32,8 @@ http://www.templatemo.com/tm-486-new-event
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
 	var MyContract = web3.eth.contract(abi);
+	var myContractInstance = MyContract.at(contract_address);
+	var owner = myContractInstance.total.call();
 	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
 	//$('#price').html('price');  
 	//$('#quantityOwned').html('quantityOwned');  
