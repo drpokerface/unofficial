@@ -32,7 +32,7 @@ http://www.templatemo.com/tm-486-new-event
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
 	web3.eth.contract(abi).at(contract_address);
-	let price = contract.virtualgoldprice.call();
+	let price = contract.virtualGoldPrice.call();
 	let quantityOwned = contract.quantity[userAccount].call();
 	$('#price').html(price)  
 	$('#quantityOwned').html(quantityOwned)  
