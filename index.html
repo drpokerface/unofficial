@@ -31,13 +31,13 @@ http://www.templatemo.com/tm-486-new-event
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
-	var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice.call();
 	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
 	//$('#price').html('price');  
 	//$('#quantityOwned').html('quantityOwned');  
 	$('#account').html('');  
         try {
           await ethereum.enable();
+	  var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice.call();
           initPayButton()
 	  initSellButton()
 	  $('#status').html('Wallet Connected')
@@ -145,7 +145,7 @@ http://www.templatemo.com/tm-486-new-event
 				<h2 class="wow fadeIn" data-wow-delay="0.8s"><center>DECENTRALIZED | <span style="color:white">TRANSPARENT</span> | LUCRATIVE</center></h2><br><span>
 				<h2 class="wow fadeIn" data-wow-delay="1.2s">A revolutionary new type of <span style="color:gold">digital asset</span> stored on the blockchain <span style="color:gold">whose value</span> cannot depreciate. It <span style="color:gold">can only grow</span></span></h2><br>
 				<a href="#detail" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">LEARN MORE</a>
-				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUALGOLD</a>
+				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUAL GOLD</a>
 				<a href="#overview" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">TELEGRAM</a><br>
 			</div>
 
