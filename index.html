@@ -61,7 +61,9 @@ http://www.templatemo.com/tm-486-new-event
 	var amountVG = document.getElementById("sellAmount").value;
 	var MyContract = web3.eth.contract(abi);
 	var myContractInstance = MyContract.at(contract_address);
-	var t = myContractInstance.methods.total().call().then(console.log);	      
+	var result = myContract.methods.total.call().call((error, result) => {
+    		console.log(result);
+	})    
         web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction(amountVG,{
         }, (err, transactionId) => {
           if  (err) {
