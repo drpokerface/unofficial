@@ -31,6 +31,11 @@ http://www.templatemo.com/tm-486-new-event
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
+	web3.eth.contract(abi).at(contract_address);
+	let price = contract.virtualgoldprice.call();
+	let quantityOwned = contract.quantity[userAccount].call();
+	$('#price').html(price)  
+	$('#quantityOwned').html(quantityOwned)  
 	$('#account').html('')  
         try {
           await ethereum.enable();
@@ -155,7 +160,7 @@ http://www.templatemo.com/tm-486-new-event
     OVERVIEW SECTION   
 ============================== -->
 <section id="overview" class="parallax-section">
-	<center><h1 class="wow bounceIn">Current Price<div id="message"></div></h1></center><br><br><br>
+	<center><h1 class="wow bounceIn">Current Price<div id="message"><p id="price"></p></div></h1></center><br><br><br>
 	<div class="container">
 		<div class="row">
 
