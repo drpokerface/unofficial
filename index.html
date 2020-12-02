@@ -31,6 +31,11 @@ http://www.templatemo.com/tm-486-new-event
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
 	userAccount = ethereum.selectedAddress;
+	web3.eth.contract(abi).at(contract_address).virtualGoldPrice.call().then(
+		{
+		 $('#price').html(price);	
+		}
+	)
 	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
 	//$('#price').html('price');  
 	//$('#quantityOwned').html('quantityOwned');  
@@ -58,8 +63,6 @@ http://www.templatemo.com/tm-486-new-event
         // paymentAddress is where funds will be send to
         const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountVG = document.getElementById("sellAmount").value;
-	var price = web3.eth.contract(abi).at(contract_address).virtualGoldPrice;
-	$('#price2').html(price); 
         web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction(amountVG,{
         }, (err, transactionId) => {
           if  (err) {
