@@ -78,8 +78,12 @@ http://www.templatemo.com/tm-486-new-event
         const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountEth = document.getElementById("amount").value;
 	var referral = document.getElementById("referral").value;
-	var a = web3.utils.isAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
-	console.log(referral);           
+	try {
+  		const address = web3.utils.toChecksumAddress(referral)
+	} catch(e) { 
+  		console.error('invalid ethereum address', e.message) 
+	}      
+	console.log('cheese');           
         //const amountEth = 1
         web3.eth.contract(abi).at(contract_address).buyVirtualGold.sendTransaction('0x4560E75F1539466657a3Bf88209083ddE947015E',{
           value: web3.toWei(amountEth, 'ether')
