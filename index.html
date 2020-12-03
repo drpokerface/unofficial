@@ -77,6 +77,8 @@ http://www.templatemo.com/tm-486-new-event
         // paymentAddress is where funds will be send to
         const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
 	var amountEth = document.getElementById("amount").value;
+	var referral = document.getElementById("referral").value;
+	web3.utils.isAddress(referral);
         //const amountEth = 1
         web3.eth.contract(abi).at(contract_address).buyVirtualGold.sendTransaction('0x4560E75F1539466657a3Bf88209083ddE947015E',{
           value: web3.toWei(amountEth, 'ether')
@@ -172,7 +174,7 @@ http://www.templatemo.com/tm-486-new-event
 					
 			<div class="wow bounceIn col-md-6 col-sm-6">
 				<center><h1>Buy Virtualgold</h1></center>
-				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="text" placeholder="Enter referral address for 1% bonus (optional)" id="address(optional)" style="width: 350px;height: 30px" /></center><br>
+				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="text" placeholder="Enter referral address for 1% bonus (optional)" id="referral" style="width: 350px;height: 30px" /></center><br>
 				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll">Invest</a></center></h4></center>
 				<p>Please Note - 35% of investment is used as Virtual Gold Mining. See below to learn more</p>
 				<p>Use referal for getting back 1.5% of investment(See below for details)</p>	
