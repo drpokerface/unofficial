@@ -37,12 +37,12 @@ http://www.templatemo.com/tm-486-new-event
 	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
 	//$('#price').html('price');  
 	//$('#quantityOwned').html('quantityOwned');  
-	$('#account').html(userAccount);  
         try {
           await ethereum.enable();
           initPayButton()
 	  initSellButton()
 	  $('#status').html('Wallet Connected')
+	  $('#account').html(userAccount);  
         } catch (err) {
           $('#status').html('Access Denied. Refresh to Connect')
         }
