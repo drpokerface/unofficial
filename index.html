@@ -30,6 +30,7 @@ http://www.templatemo.com/tm-486-new-event
     window.addEventListener('load', async () => {
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
+	await ethereum.enable();
 	var result = web3.eth.contract(abi).at(contract_address).getPrice.call({from: web3.eth.accounts[0], gas:3000000}, function(err, res){ $('#price').html(res.toNumber()/(1000000000))});
 	var result = web3.eth.contract(abi).at(contract_address).getQuantity.call(userAccount,{from: web3.eth.accounts[0], gas:3000000}, function(err, res){ $('#price2').html(res.toNumber()/(1000000000))});
 	//var owner = myContractInstance.total.call();
@@ -37,7 +38,6 @@ http://www.templatemo.com/tm-486-new-event
 	//$('#price').html('price');  
 	//$('#quantityOwned').html('quantityOwned');  
         try {
-          await ethereum.enable();
 	  userAccount = ethereum.selectedAddress;
           initPayButton()
 	  initSellButton()
