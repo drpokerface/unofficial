@@ -22,6 +22,7 @@
     <script type="text/javascript">
         async function loadWeb3() {
             if (window.ethereum) {
+                var Web3 = require("web3")
                 window.web3 = new Web3(window.ethereum);
                 window.ethereum.enable();
             }
