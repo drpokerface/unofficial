@@ -1,365 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<!--
-VirtualGoldCoin
-http://www.templatemo.com/tm-486-new-event
--->
-<title>VirtualGold</title>
-<meta name="description" content="">
-<meta name="author" content="">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/owl.theme.css">
-<link rel="stylesheet" href="css/owl.carousel.css">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Web 3 Demo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-<!-- Main css -->
-<link rel="stylesheet" href="css/style.css">
-
-<!-- Google Font -->
-<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>	
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	  <script type="text/javascript">
-    const contract_address = "0xFaeDf90d5e34cFAa1456A61cC9a05cE88146dE53";
-    const abi = [{"constant":false,"inputs":[{"name":"referral","type":"address"}],"name":"buyVirtualGold","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"total","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"account","type":"address"}],"name":"getQuantity","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"virtualGoldPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"sellVirtualGold","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"quantity","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"increaseTokenPrice","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-    window.addEventListener('load', async () => {
-      if (window.ethereum) {
-        window.web3 = new Web3(ethereum);
-	await ethereum.enable();
-	var result = web3.eth.contract(abi).at(contract_address).getPrice.call({from: web3.eth.accounts[0], gas:3000000}, function(err, res){ $('#price').html(res.toNumber()/(1000000000))});
-	var result = web3.eth.contract(abi).at(contract_address).getQuantity.call(userAccount,{from: web3.eth.accounts[0], gas:3000000}, function(err, res){ $('#price2').html(res.toNumber()/(1000000000))});
-	//var owner = myContractInstance.total.call();
-	//let quantityOwned = web3.eth.contract(abi).at(contract_address).quantity[userAccount];
-	//$('#price').html('price');  
-	//$('#quantityOwned').html('quantityOwned');  
-        try {
-	  userAccount = ethereum.selectedAddress;
-          initPayButton()
-	  initSellButton()
-	  $('#status').html('Wallet Connected')
-	  $('#account').html(userAccount);  
-        } catch (err) {
-          $('#status').html('Access Denied. Refresh to Connect')
-        }
-      } else if (window.web3) {
-        window.web3 = new Web3(web3.currentProvider)
-        initPayButton()
-	initSellButton()
-      } else {
-        $('#status').html('Wallet not installed')
-      }	    
-    })
-		  
-    const initSellButton = () => {    
-      $('.sell-button').click(() => {
-        // paymentAddress is where funds will be send to
-        //const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
-	var amountVG = document.getElementById("sellAmount").value*1000000000;
-        web3.eth.contract(abi).at(contract_address).sellVirtualGold.sendTransaction(amountVG,{
-        }, (err, transactionId) => {
-          if  (err) {
-            console.log('Payment failed', err)
-            $('#status').html('Payment failed')
-          } else {
-            console.log('Payment successful', transactionId)
-            $('#status').html('Payment successful')
-          }
-        })
-      })
-    }
-    const initPayButton = () => {    
-      $('.pay-button').click(() => {
-        // paymentAddress is where funds will be send to
-        const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
-	var amountEth = document.getElementById("amount").value;
-	var ID = document.getElementById("userText").value;         
-        //const amountEth = 1
-        web3.eth.contract(abi).at(contract_address).buyVirtualGold.sendTransaction(ID,{
-          value: web3.toWei(amountEth, 'ether')
-        }, (err, transactionId) => {
-          if  (err) {
-            console.log('Payment failed', err)
-            $('#status').html('Payment failed')
-          } else {
-            console.log('Payment successful', transactionId)
-            $('#status').html('Payment successful')
-          }
-        })
-      })
-    }
-  </script>
-<link rel="shortcut icon" type="image/png" href="images/v2.png" />	
+    <script src='node_modules/web3/dist/web3.min.js'></script>
 </head>
-<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
 
-<!-- =========================
-     PRE LOADER       
-============================== -->
-<div class="preloader">
+<body>
 
-	<!-- <div class="sk-rotating-plane"><img src="images/g1444.png" width="100" height="100"></div> -->
+    Web 3 Demo
+    <br >
+    <button onclick="printCoolNumber();">Print Cool Number</button>
+    <button onclick="changeCoolNumber();">Change Cool Number</button>
+    <br /><br />
+    Status: <span id="status">Loading...</span>
 
-</div>
+    <script type="text/javascript">
+        async function loadWeb3() {
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+            }
+        }
 
+        async function loadContract() {
+            return await new window.web3.eth.Contract([
+                {
+                    "inputs": [],
+                    "name": "coolNumber",
+                    "outputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "_coolNumber",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "setCoolNumber",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                }
+            ], '0x5F4a8C71AFB0c01BA741106d418E78888607Ee63');
+        }
 
-<!-- =========================
-     NAVIGATION LINKS     
-============================== -->
-<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
-	<div class="container">
+        async function printCoolNumber() {
+            updateStatus('fetching Cool Number...');
+            const coolNumber = await window.contract.methods.coolNumber().call();
+            updateStatus(`coolNumber: ${coolNumber}`);
+        }
 
-		<!-- navbar header -->
-		<div class="navbar-header">
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-			</button>
-		</div>
-		<h4><img class="wow fadeIn" data-wow-delay="2.4s" src="images/vg.png" width="40" height="40"><span class="wow fadeIn" data-wow-delay="2.4s" id='account' style="color:white" class="smoothScroll"></span><span class="wow fadeIn" data-wow-delay="2.4s" id='status' style="color:white" class="smoothScroll"></h4></span>
-		<!--<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><p id='account' style="color:white" class="smoothScroll"></p></li>
-			</ul>
-		</div> -->
+        async function getCurrentAccount() {
+            const accounts = await window.web3.eth.getAccounts();
+            return accounts[0];r
+        }
 
+        async function changeCoolNumber() {
+            const value = Math.floor(Math.random() * 100);
+            updateStatus(`Updating coolNumber with ${value}`);
+            const account = await getCurrentAccount();
+            const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
+            updateStatus('Updated.');
+        }
 
-	</div>
-</div>
+        async function load() {
+            await loadWeb3();
+            window.contract = await loadContract();
+            updateStatus('Ready!');
+        }
 
+        function updateStatus(status) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = status;
+            console.log(status);
+        }
 
-<!-- =========================
-    INTRO SECTION 
-   
-============================== -->
-<section id="intro" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-12 col-sm-12">
-				<br><br><br><br>
-				<h1 class="wow fadeIn" data-wow-delay="0.4s" style="font-size:96px;"><span class="wow fadeIn" data-wow-delay="2s"><img src="images/vg.png" width="125" height="125"></span><span style="color:white">virtual</span><span style="color:gold">gold</span></h1>
-				<h2 class="wow fadeIn" data-wow-delay="0.8s"><center>DECENTRALIZED | <span style="color:white">TRANSPARENT</span> | LUCRATIVE</center></h2><br><span>
-				<h2 class="wow fadeIn" data-wow-delay="1.2s">A revolutionary new type of <span style="color:gold">digital asset</span> stored on the blockchain <span style="color:gold">whose value</span> cannot depreciate. It <span style="color:gold">can only grow</span></span></h2><br>
-				<a href="#detail" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">LEARN MORE</a>
-				<a href="#overview" class="btn btn-lg btn-danger smoothScroll wow fadeIn" data-wow-delay="1.6s">BUY VIRUALGOLD</a>
-				<a href="#overview" class="btn btn-lg btn-default smoothScroll wow fadeIn" data-wow-delay="1.6s">TELEGRAM</a><br>
-			</div>
-
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    OVERVIEW SECTION   
-============================== -->
-<section id="overview" class="parallax-section">
-	<center><h2 class="wow bounceIn"><span style="font-size:30px">Current price of virtualgold is </span><span style="color:#4267b2; font-size:30px" id="price"></span><span style="color:#4267b2; font-size:30px"> ETH</span><span style="font-size:30px"> per gram. This value increases after every virtualgold purchase. The value of virtualgold is backed by the ethereum in our smart contract. You currently own a total of </span><span style="color:#4267b2; font-size:30px" id="price2"></span><span style="color:#4267b2; font-size:30px"> grams</span></div></center></h3><br><br><br><br><br><hr><br>
-	<div class="container">
-		<div class="row">
-
-			<div class="wow bounceIn col-md-6 col-sm-6">
-				<center><h1>Sell Virtualgold</h1></center>
-				<center><span style="font-size:24px">Amount in grams </span><input style="width: 110px;"type="number" id="sellAmount" /></center>
-				<h4><center><a style="background-color:#4267b2; color:white" class="sell-button btn btn-lg btn-default smoothScroll">Sell</a></center></h4>
-			</div>
-					
-			<div class="wow bounceIn col-md-6 col-sm-6">
-				<center><h1>Buy Virtualgold</h1></center>
-				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="text" placeholder="Enter referral address for 1% bonus (optional)" id="userText" style="width: 350px;height: 30px" /></center><br>
-				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll">Invest</a></center></h4></center>
-				<p>Please Note - 33% of investment is used as fees. See below to learn more</p>
-			</div>
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    DETAIL SECTION   
-============================== -->
-<section id="detail" class="parallax-section">
-	<div class="container">
-		<div class="row">
-				<div class="wow bounceIn"><center><img src="images/vg.png" width="90" height="90"></center>
-				<center><h2><span style="color:white">Introducing VirtualGold</span></h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3><span style="color:white">Virtual gold is a digital asset that is stored on the ethereum blockchain. It uses smart contract technology to ensure complete transparency, security and decentralized ownership. But unlike other standard cryptocurrencies whose value is determined by supply and demand, virtual gold utilizes a very unique and innovative model to sustainably increase its value. At a very fundamental level virtual gold has been programmed in such a way that its price can never reduce, it can only grow. The rate of increase may fluctuate based upon demand. Early investments would observe greater and quicker growth as compared to subsequent ones.</span></h3></p><br><br><br><hr><br><br><br></div>
-
-		      <!--  <div class="wow fadeInLeft col-md-4" data-wow-delay="0.3s">-->
-				<div class="wow bounceIn"><center><i class="fa fa-exchange"></i></center>
-				<center><h2>How does the system work?</h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3>66% of the ethereum you invest will be converted to virtual gold at the conversion rate. The remaining ethereum is used for virtual gold mining fees. The main reason why this fee is being charged is for boosting the price of virtual gold. Whenever a new person invests into the system a portion of their investment is paid out to all virtual gold holders in proportion to the size of their holdings. This money is indirectly paid to them by increasing the amount of ethereum backing their virtual gold within the smart contract. This is what causes the price of virtual gold to increase after every investment. There is no upper limit your profits! The longer you hold on to your virtual gold the greater would be your return on investment. Your virtual gold and the corresponding value in ethereum backing its value is always secured within the smart contract. Also, 66% of your investment always remains untouched. This is done to reduce risk on investment. So under no circumstance even if you are the last person to join the system you cannot lose more than 33% of your investment.</h3></p><br><br><br><hr><br><br><br></div>
-			<!--</div>-->
-
-			<!-- <div class="wow fadeInUp col-md-4" data-wow-delay="0.6s">
-				<i class="fa fa-clock-o"></i>
-				<h2>Refundable tokens</h2></div>
-				<p><h3>>VG tokens can be easily converted back into Bitcoin or Ethereum. 
-				       >Even if VG coins lose market value, you dont lose your money (We buy them back)</h3></p>
-			</div> -->
-
-			<!--<div class="wow fadeInRight col-md-4" data-wow-delay="0.9s">-->
-				<div class="wow bounceIn"><center><i class="fa fa-lock"></i></center>
-				<center><h2>Security</h2></center></div>
-				<div class="wow fadeIn" data-wow-delay="0.3s"><p><h3>Virtual gold uses smart contract technology to ensure complete transparency, security and decentralized ownership. All the code in the smart contract is publicly viewable. Therefore any form of scam or malpractice is impossible.</h3></p></div>
-			<!--</div>-->
-
-		</div>
-	</div>
-</section>
-
-
-
-<!-- =========================
-    FAQ SECTION   
-============================== -->
-<section id="faq" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<!-- Section title
-			================================================== -->
-			<div class="wow bounceIn col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
-				<div class="section-title">
-					<h2>Frequently Asked Questions</h2>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-				</div>
-			</div>
-
-			<div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.3s">
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-  					<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingOne">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          							 Why is USDT used instead of ethereum?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      						<div class="panel-body">
-        						<p>The main reason why we use usdt to back the virtual gold in the smart contract is because usdt is a stable coin pegged to us dollar. If we had build the system using ethereum or some other cryptocurrency even if you cash out 10x what you invested it may not be worth 10x due to fluctuations in the value of non-stable cryptocurrencies. Therefore in order to make the project a long and sustainable project, we felt it would be wiser to use the most popular stable cryptocurrency-usdt.</p>
-      						</div>
-   						 </div>
- 					</div>
-
-    				<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingTwo">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          							Can you transfer virtual gold to another address?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      						<div class="panel-body">
-                            	<p>Nope it is not possible. Once you buy virtual gold your holdings are uniquely linked only to your wallet, until you chose to cash out(aka sell). It cannot be transferred. Virtual gold is not a traditional cryptocurrency used for facilitating transactions. The main motivation behind virtual gold was to create a digital asset solely for investors. Virtual gold is more like the blockchain equivalent of a real world appreciating asset like land or gold where investors buy in order to sell at a higher price later.</p>
-      						</div>
-   						 </div>
- 					</div>
-
- 					<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingThree">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          							Are early investors rewarded more than newer ones?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      						<div class="panel-body">
-                            	<p>Although everybody's investment grows with time, the rate of growth of of virtual gold is inversely proportionate to the number of virtual gold holders. Therefore those investors who invest when there are fewer holders(when there is lesser money in the smart contact), would observe a quicker growth in investment. Therefore the earlier the investment the more lucrative it would be.</p>
-      						</div>
-   						 </div>
- 					 </div>
-
- 				 </div>
-			</div>
-
-		</div>
-	</div>
-</section>
-
-
-
-<!-- =========================
-    SPONSORS SECTION   
-============================== -->
-<section id="sponsors" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow bounceIn col-md-12 col-sm-12">
-				<div class="section-title">
-					<h2>Join Our Referral Program and Earn Bitocin</h2>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-				</div>
-			</div>
-
-			<div class="wow fadeIn col-md-3 col-sm-6 col-xs-6" data-wow-delay="0.3s">
-				<img src="images/sponsor-img1.jpg" class="img-responsive" alt="sponsors">	
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    CONTACT SECTION   
-============================== -->
-
-<!-- =========================
-    FOOTER SECTION   
-============================== -->
-<footer>
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-12 col-sm-12">
-				<p class="wow fadeIn" data-wow-delay="0.6s">Copyright &copy; 2016 Your Company 
-                    
-                    | Design: <a rel="nofollow" href="http://www.templatemo.com/page/1" target="_parent">Templatemo</a></p>
-
-				<ul class="social-icon">
-					<li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="#" class="fa fa-twitter wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="#" class="fa fa-dribbble wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="#" class="fa fa-behance wow fadeIn" data-wow-delay="0.3s"></a></li>
-					<li><a href="#" class="fa fa-google-plus wow fadeIn" data-wow-delay="0.3s"></a></li>
-				</ul>
-
-			</div>
-			
-		</div>
-	</div>
-</footer>
-
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-
-<!-- =========================
-     SCRIPTS   
-============================== -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
-  <div>	  
-    <div id="status"></div>
-  </div>
+        load();
+    </script>
 </body>
+
 </html>
