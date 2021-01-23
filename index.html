@@ -164,7 +164,7 @@
 
         async function printCoolNumber() {
             updateStatus('fetching Cool Number...');
-            const coolNumber = await window.contract.methods.coolNumber().call();
+            const coolNumber = await window.contract.methods.getPrice().call();
             updateStatus(`coolNumber: ${coolNumber}`);
         }
 
