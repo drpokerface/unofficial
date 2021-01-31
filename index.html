@@ -188,7 +188,7 @@
             const value = 1;
             updateStatus(`Updating coolNumber with ${value}`);
             const account = await getCurrentAccount();
-            const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account });
+            const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: value });
             updateStatus('Updated.');
         }
 	    
