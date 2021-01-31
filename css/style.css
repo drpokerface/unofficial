@@ -2,6 +2,21 @@
 New Event
 http://www.templatemo.com/tm-486-new-event
 */
+@media (min-width:629px) {
+  #hide {
+    display: none;
+  }
+}
+@media (min-width:629px) {
+  #optionalstuff {
+    zoom: 100%;
+  }
+}
+@media (max-width:629px) {
+  #optionalstuff {
+    zoom: 40%;
+	}
+}
 
 body {
 		background: #ffffff;
@@ -38,7 +53,7 @@ h3 {
 
 h5 {
     letter-spacing: 1px;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 
 p {
@@ -98,17 +113,22 @@ footer {
     font-weight: 600;
     letter-spacing: 1px;
     font-size: 12px;
-    padding: 10px 42px;
+    padding: 10px 20px;
     margin-top: 20px;
     margin-right: 12px;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
+    z-index: 350;
+
 }
 
 #intro .btn-danger,
 #contact .btn-danger {
     background: #4267b2;
-    border-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;	
+    z-index: 350;
+
 }
 
 #contact .btn {
@@ -117,8 +137,10 @@ footer {
 
 #intro .btn-danger:hover {
   background: #ffffff;
-  border-color: #4267b2;
-  color: #ffffff;
+  border: 2px solid #4267b2;
+  color: #4267b2;
+  z-index: 350;
+
 }
 
 #contact .btn-danger:hover {
@@ -127,13 +149,28 @@ footer {
 
 #intro .btn-default:hover {
     background: #ffffff;
-    color: #333333;
+    color: #4267b2;
     border-color: #4267b2;
+    z-index: 350;
+
 }
 
 .parallax-section {
   background-attachment: fixed !important;
   background-size: cover !important;
+}
+
+
+#borderd {
+  border: 5px solid #d7b95a;
+}
+
+#spaced{
+	word-spacing: 5px;
+}
+
+#zoomout{
+	zoom: 85%;
 }
 
 
@@ -190,9 +227,13 @@ footer {
     Navigation Links section              
 -----------------------------------------*/
 .custom-navbar {
-    margin-bottom: 100;
-    padding-bottom: 7px;
-    background-color: #101010;
+    /*margin-bottom: 100;*/
+    padding: 0px;
+    background-color: #000000;
+    position: fixed;
+    margin:0px;
+    border-bottom: 1px solid #050505;
+
 }
 /*
 .custom-navbar .navbar-brand {
@@ -249,7 +290,7 @@ footer {
     Intro section              
 -----------------------------------------*/
 #intro {
-    background: url('../images/intro-bg.jpg') 50% 0 repeat-y fixed;
+    background: url('../images/img.png') 50% 0 repeat-y fixed;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -264,6 +305,22 @@ footer {
           align-items: center;
     height: 100vh;
     text-align: center;
+	
+color: #222;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  animation: animation 110s linear infinite;	
+}
+
+@keyframes animation {
+   100%{
+    background-position:0px -3000px;
+  }
 }
 
 #intro h3 {
@@ -275,9 +332,8 @@ footer {
 /*---------------------------------------
    Overview  section              
 -----------------------------------------*/
-#overview img {
+#overview {
   position: relative;
-  padding-bottom: 32px;
 }
 
 
@@ -286,13 +342,46 @@ footer {
     Detail section              
 -----------------------------------------*/
 #detail {
-    background: #222;
+    /*background: #111111;*/
     color: #ffffff;
+    background: url('../images/img.png') 50% 0 repeat-y fixed;
 }
 
 #detail .fa {
   color: #4267b2;
   font-size: 72px;
+}/*-200px */
+#overlayed {
+  position: relative; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  /*width: 100%; /* Full width (cover the whole page) */
+  /*height: 100%; /* Full height (cover the whole page) */
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1,1,1,1,0.8); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  min-width:1000px;
+}
+
+#dark {
+  position: absolute; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 0.005%; /* Full height (cover the whole page) */
+  opacity: 1;
+  top: 15vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1,1,1,1,1); /* Black background with opacity */
+  z-index: 40; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  min-width:1000px;
+
 }
 
 
@@ -537,7 +626,8 @@ footer {
 -----------------------------------------*/
 #sponsors  {
   /*margin-top: 18px;*/
-  background: #222222;
+  /*background: #111111;*/
+  background: url('../images/img.png') 50% 0 repeat-y fixed;
 }
 
 
