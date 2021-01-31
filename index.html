@@ -185,7 +185,7 @@
         }
 	    
 	async function buyVirtualgold() {
-            const value = 1;
+            const value = 3*1000000000;
             updateStatus(`Updating coolNumber with ${value}`);
             const account = await getCurrentAccount();
             const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: value });
