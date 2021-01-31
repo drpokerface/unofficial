@@ -180,6 +180,22 @@
             const coolNumber = await window.contract.methods.sellVirtualGold(value).send({ from: account });
             updateStatus('Updated.');
         }
+	    
+	async function buyVirtualgold() {
+            const value = 1;
+            updateStatus(`Updating coolNumber with ${value}`);
+            const account = await getCurrentAccount();
+            const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account });
+            updateStatus('Updated.');
+        }
+	    
+	async function transferVirtualgold() {
+            const value = Math.floor(Math.random() * 100);
+            updateStatus(`Updating coolNumber with ${value}`);
+            const account = await getCurrentAccount();
+            const coolNumber = await window.contract.methods.sellVirtualGold(value).send({ from: account });
+            updateStatus('Updated.');
+        }    
 
         async function load() {
             await loadWeb3();
