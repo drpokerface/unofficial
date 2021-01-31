@@ -177,7 +177,7 @@
             const value = Math.floor(Math.random() * 100);
             updateStatus(`Updating coolNumber with ${value}`);
             const account = await getCurrentAccount();
-            const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
+            const coolNumber = await window.contract.methods.sellVirtualGold(value).send({ from: account });
             updateStatus('Updated.');
         }
 
