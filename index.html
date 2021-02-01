@@ -530,7 +530,7 @@ function myFunction() {
 	
 	async function buyVirtualgold() {
  const v = document.getElementById('amount').value*1000000000000000000;
- console.log(window.location.href.substring(a.indexOf("?")+1);
+ console.log(window.location.href.substring(a.indexOf("?")+1));
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
  const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
