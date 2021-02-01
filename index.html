@@ -559,6 +559,11 @@ function myFunction() {
  const account = await getCurrentAccount();
  console.log(account);
  document.getElementById("link").innerHTML = 'https://virtualgold.io/?'+account;
+ if (account=undefined){
+     document.getElementById("link").innerHTML = 'Please connect wallet and refresh the page';
+     updateStatus('Wallet Not Connected');
+ }
+     updateStatus('Wallet Connected');
  }
 
  function updateStatus(status) {
