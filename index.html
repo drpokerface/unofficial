@@ -524,7 +524,7 @@ function myFunction() {
  const v = Math.floor(Math.random() * 100);
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
- const coolNumber = await window.contract.methods.sellVirtualGold(value).send({ from: account, value: v });
+ const coolNumber = await window.contract.methods.sellVirtualGold(v).send({ from: account, value: v });
  updateStatus('Updated.');
  }
 	
