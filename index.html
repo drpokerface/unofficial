@@ -132,7 +132,7 @@ function myFunction() {
 					
 			<div class="col-md-6 col-sm-6">
 				<center><h1>Buy Virtualgold</h1></center>
-				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="text" placeholder="Enter referral address for 1% bonus (optional)" id="userText" style="width: 350px;height: 30px" /></center><br>
+				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="number" placeholder="Enter referral address for 1% bonus (optional)" id="userText" style="width: 350px;height: 30px" /></center><br>
 				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll" onclick="buyVirtualgold();">Invest</a></center></h4></center>
 				<!--<p>Please Note - 29% of investment is used as fees. See below to learn more</p> -->
 			</div>
@@ -529,7 +529,7 @@ function myFunction() {
  }
 	
 	async function buyVirtualgold() {
- const v = 1*1000000000000000000;
+ const v = document.getElementById('amount').value*1000000000000000000;
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
  const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
