@@ -308,7 +308,7 @@ function myFunction() {
 			</div>
 
 			<div class="wow fadeIn" data-wow-delay="0.3s" style="color:white;font-family:Yu Gothic Light">
-				<br><h3 style="color:white">This referral system is valid for as long as virtulgold is in its <span style="color:#d4af37">presale phase</span>(until 3 weeks after the contract balance crosses $1,000,000 USD)</h3><br><center><h3><span>Your referral link : </span><span style="color:gold;" onclick="selectText('link')">You need to be a virtualgold holder to generate a referral link</span></h3></center><br><br><br><h3 style="color:white">Tell others about virtualgold and ask them to invest using your referral link. This way you would receive a <span style="color:#d4af37;">bonus of 5% of every investment</sapn><span style="color:white"> made using your link. Additionally the investor who invests using your referral code would receive </span><span style="color:#d4af37">a 1% bonus.</span><span style="color:white"> This is done to incentivize investors to use your referral link. All bonuses are paid in virtualgold. Also please note that in order to receive referral commission, you need to be a virtualgold holder (no minimum required investment). The quantity owed by you should be greater than 0.00 grams.</span></h3>
+				<br><h3 style="color:white">This referral system is valid for as long as virtulgold is in its <span style="color:#d4af37">presale phase</span>(until 3 weeks after the contract balance crosses $1,000,000 USD)</h3><br><center><h3><span>Your referral link : </span><span style="color:gold;" onclick="selectText('link')" id="link"></span></h3></center><br><br><br><h3 style="color:white">Tell others about virtualgold and ask them to invest using your referral link. This way you would receive a <span style="color:#d4af37;">bonus of 5% of every investment</sapn><span style="color:white"> made using your link. Additionally the investor who invests using your referral code would receive </span><span style="color:#d4af37">a 1% bonus.</span><span style="color:white"> This is done to incentivize investors to use your referral link. All bonuses are paid in virtualgold. Also please note that in order to receive referral commission, you need to be a virtualgold holder (no minimum required investment). The quantity owed by you should be greater than 0.00 grams.</span></h3>
 			</div>
 		</div>
 	</div>
@@ -558,6 +558,7 @@ function myFunction() {
  updateStatus('Ready!');
  const account = await getCurrentAccount();
  console.log(account);
+ document.getElementById("link").innerHTML = account;
  }
 
  function updateStatus(status) {
