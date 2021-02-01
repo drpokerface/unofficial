@@ -562,8 +562,9 @@ function myFunction() {
  if (account===undefined){
      document.getElementById("link").innerHTML = 'Please connect wallet and refresh the page';
      updateStatus('Wallet Not Connected');
- }
+ }else{
      updateStatus('Wallet Connected');
+ }
  }
 
  function updateStatus(status) {
