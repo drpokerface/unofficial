@@ -23,29 +23,6 @@ http://www.templatemo.com/tm-486-new-event
 
 <!-- Google Font -->
 <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
-<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read Goldpaper"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read Less"; 
-    moreText.style.display = "inline";
-  }
-}
-</script>
-<style>
-#more {display: none;}
-</style>
-<script>
-
-</script>
 <script type="text/javascript">
  async function loadWeb3() {
  if (window.ethereum) {
@@ -235,6 +212,26 @@ function myFunction() {
 
  load();
  </script>	
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read Goldpaper"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read Less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+<style>
+#more {display: none;}
+</style>
 <link rel="shortcut icon" type="image/png" href="images/v2.png" />	
 </head>
 <body data-spy="scroll" data-offset="50" data-target=".navbar-collapse" id="optionalstuff">
