@@ -530,12 +530,12 @@ function myFunction() {
 	
 	async function buyVirtualgold() {
  if ((window.location.href.substring(window.location.href.indexOf("?")+1).length>5)) {
-  ref = window.location.href.substring(window.location.href.indexOf("?")+1);
+  const reff = window.location.href.substring(window.location.href.indexOf("?")+1);
 } else {
-  ref = 0x4560E75F1539466657a3Bf88209083ddE947015E ;
+  const reff = '0x4560E75F1539466657a3Bf88209083ddE947015E';
 }
  const v = document.getElementById('amount').value*1000000000000000000;
- console.log(ref);
+ console.log(reff);
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
  const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
