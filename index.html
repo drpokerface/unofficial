@@ -556,6 +556,8 @@ function myFunction() {
  await loadWeb3();
  window.contract = await loadContract();
  updateStatus('Ready!');
+ const account = await getCurrentAccount();
+ console.log(account);
  }
 
  function updateStatus(status) {
