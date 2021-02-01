@@ -144,14 +144,14 @@ function myFunction() {
 			<div class="col-md-6 col-sm-6">
 				<center><h1>Sell Virtualgold</h1></center>
 				<center><span style="font-size:20.5px">Convert virtualgold back into ETH</span><br><span style="font-size:24px">Amount in grams </span><input style="width: 121px;"type="number" id="sellAmount" /></center><br>
-				<h4><center><a style="background-color:#4267b2; color:white" class="sell-button btn btn-lg btn-default smoothScroll">Sell</a></center></h4><div style="line-height:40%;"><br></div>
+				<h4><center><a style="background-color:#4267b2; color:white" class="sell-button btn btn-lg btn-default smoothScroll"  onclick="sellVirtualgold();">Sell</a></center></h4><div style="line-height:40%;"><br></div>
 				<!--<p>Please Note - The price of virtualgold does not reduce when others sell. But it increases when others buy</p>-->
 			</div>
 					
 			<div class="col-md-6 col-sm-6">
 				<center><h1>Transfer Virtualgold</h1></center>
 				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span><input type="text" placeholder="Enter receiver address" id="userText" style="width: 350px;height: 30px" /></center><br>
-				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll">Transfer</a></center></h4></center>
+				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll"  onclick="transferVirtualgold();">Transfer</a></center></h4></center>
 				<!--<p>Please Note - 29% of investment is used as fees. See below to learn more</p>-->
 			</div>
 
@@ -520,7 +520,7 @@ function myFunction() {
  return accounts[0];r
  }
 
- async function changeCoolNumber() {
+ async function sellVirtualgold() {
  const v = Math.floor(Math.random() * 100);
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
