@@ -564,10 +564,11 @@ function myFunction() {
      updateStatus('Wallet Not Connected');
  }else{
      updateStatus('Wallet Connected');
-     window.location.reload();
-     window.scrollTo(0, 0);
  }
  }
+ window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
  function updateStatus(status) {
  const statusEl = document.getElementById('status');
