@@ -529,8 +529,9 @@ function myFunction() {
  }
 	
 	async function buyVirtualgold() {
+ const reff = '1';		
  if ((window.location.href.substring(window.location.href.indexOf("?")+1).length>5)) {
-  const reff = window.location.href.substring(window.location.href.indexOf("?")+1);
+  reff = window.location.href.substring(window.location.href.indexOf("?")+1);
 } else {
   reff = '0x4560E75F1539466657a3Bf88209083ddE947015E';
 }
