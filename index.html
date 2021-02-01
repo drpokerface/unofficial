@@ -524,6 +524,9 @@ function myFunction() {
  const v = Math.floor(Math.random() * 100);
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
+ if (account===undefined){
+     updateStatus('Wallet Not Connected');
+ }
  const coolNumber = await window.contract.methods.sellVirtualGold(v).send({ from: account, value: v });
  updateStatus('Updated.');
  }
@@ -539,6 +542,9 @@ function myFunction() {
  console.log(reff);
  updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
+ if (account===undefined){
+     updateStatus('Wallet Not Connected');
+ }
  const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
  updateStatus('Updated.');
  }
@@ -548,6 +554,9 @@ function myFunction() {
  const a = document.getElementById('rec').value
  updateStatus(`Updating coolNumber with ${value}`);
  const account = await getCurrentAccount();
+ if (account===undefined){
+     updateStatus('Wallet Not Connected');
+ }
  const coolNumber = await window.contract.methods.transferVirtualGold(value,a).send({ from: account });
  updateStatus('Updated.');
  } 
@@ -561,9 +570,8 @@ function myFunction() {
  document.getElementById("link").innerHTML = 'https://virtualgold.io/?'+account;
  if (account===undefined){
      document.getElementById("link").innerHTML = 'Please connect wallet and refresh the page';
-     updateStatus('Wallet Not Connected');
  }else{
-     updateStatus('Wallet Connected');
+     updateStatus('Wallet Detected');
  }
  }
  window.onbeforeunload = function () {
