@@ -501,9 +501,12 @@ function myFunction() {
  }
 
  async function printCoolNumber() {
- updateStatus('fetching Cool Number...');
- const coolNumber = await window.contract.methods.getPrice().call();
- updateStatus(`coolNumber: ${coolNumber}`);
+ const price = await window.contract.methods.getPrice().call();
+ const account = await getCurrentAccount();
+ const quantity = await window.contract.methods.getQuantity(account).call();
+ console.log(price);
+ console.log(quantity);
+
  }
 
  async function getCurrentAccount() {
@@ -513,13 +516,11 @@ function myFunction() {
 
  	async function sellVirtualgold() {
  const v = Math.floor(Math.random() * 100);
- updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
  if (account===undefined){
      updateStatus('Wallet Not Connected');
  }
  const coolNumber = await window.contract.methods.sellVirtualGold(v).send({ from: account, value: v });
- updateStatus('Updated.');
  }
 	
 	async function buyVirtualgold() {
@@ -537,7 +538,6 @@ function myFunction() {
      updateStatus('Wallet Not Connected');
  }
  const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
- updateStatus('Updated.');
  }
 	
 	async function transferVirtualgold() {
@@ -549,7 +549,6 @@ function myFunction() {
      updateStatus('Wallet Not Connected');
  }
  const coolNumber = await window.contract.methods.transferVirtualGold(value,a).send({ from: account });
- updateStatus('Updated.');
  } 
 
  async function load() {
