@@ -563,11 +563,12 @@ catch(err) {
  window.contract = await loadContract();
  updateStatus('Ready!');
  const account = await getCurrentAccount();
- const price = await window.contract.methods.getPrice().call();
+ var price = await window.contract.methods.getPrice().call()/1000000000;
  try {
    const account = await getCurrentAccount();
-   const quantity = await window.contract.methods.getQuantity(account).call();
+   var quantity = await window.contract.methods.getQuantity(account).call();
    console.log(quantity);
+   var value = quantity*account;
    document.getElementById("price2").innerHTML = quantity;
    document.getElementById("price3").innerHTML = quantity;
 	 
@@ -575,7 +576,8 @@ catch(err) {
 
 }
 catch(err) {
-  console.log('error');
+  document.getElementById("price2").innerHTML = 'please connect wallet and refresh';
+  document.getElementById("price3").innerHTML = 'please connect wallet and refresh';	
 }	 
 	 
  document.getElementById("price").innerHTML = price;
