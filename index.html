@@ -502,10 +502,17 @@ function myFunction() {
 
  async function printCoolNumber() {
  const price = await window.contract.methods.getPrice().call();
- const account = await getCurrentAccount();
- const quantity = await window.contract.methods.getQuantity(account).call();
+ try {
+   const account = await getCurrentAccount();
+   const quantity = await window.contract.methods.getQuantity(account).call();
+   console.log(quantity);
+
+}
+catch(err) {
+  console.log('error');
+}	 
+
  console.log(price);
- console.log(quantity);
 
  }
 
