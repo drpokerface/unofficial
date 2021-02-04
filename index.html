@@ -568,7 +568,9 @@ catch(err) {
    const account = await getCurrentAccount();
    const quantity = await window.contract.methods.getQuantity(account).call();
    console.log(quantity);
-   document.getElementById("qty").innerHTML = quantity;
+   document.getElementById("price2").innerHTML = quantity;
+   document.getElementById("price3").innerHTML = quantity;
+	 
 
 
 }
