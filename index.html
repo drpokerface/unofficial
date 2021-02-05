@@ -531,7 +531,7 @@ catch(err) {
  }
 	
 	async function buyVirtualgold() {
- var reff = '1';		
+ var reff;		
  if (window.location.href.includes("?")) {
   reff = window.location.href.substring(window.location.href.indexOf("?")+1);
 } else {
@@ -544,7 +544,7 @@ catch(err) {
  if (account===undefined){
      updateStatus('Wallet Not Connected');
  }
- const coolNumber = await window.contract.methods.buyVirtualGold(account).send({ from: account, value: v});
+ const coolNumber = await window.contract.methods.buyVirtualGold(reff).send({ from: account, value: v});
  }
 	
 	async function transferVirtualgold() {
