@@ -522,7 +522,7 @@ catch(err) {
  }
 
  	async function sellVirtualgold() {
- const v = Math.floor(Math.random() * 100);
+ const v = document.getElementById('sellAmount').value;
  const account = await getCurrentAccount();
  if (account===undefined){
      updateStatus('Wallet Not Connected');
