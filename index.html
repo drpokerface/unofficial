@@ -527,6 +527,7 @@ catch(err) {
  if (account===undefined){
      updateStatus('Wallet Not Connected');
  }
+ console.log(v)		
  const coolNumber = await window.contract.methods.sellVirtualGold(v).send({ from: account, value: v });
  }
 	
