@@ -566,7 +566,7 @@ catch(err) {
  updateStatus('Wallet Not Installed')
  await loadWeb3();
  window.contract = await loadContract();
- updateStatus('Ready!');
+ updateStatus('Just Launched!');
  const account = await getCurrentAccount();
  var price = await window.contract.methods.getPrice().call()/1000000000;
  try {
