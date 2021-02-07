@@ -553,7 +553,7 @@ catch(err) {
  }
 	
 	async function transferVirtualgold() {
- const value = document.getElementById('tamount').value
+ const value = document.getElementById('tamount').value*1000000000;
  const a = document.getElementById('rec').value
  const account = await getCurrentAccount();
  if (account===undefined){
@@ -563,6 +563,7 @@ catch(err) {
  } 
 
  async function load() {
+ updateStatus('Wallet Not Installed')
  await loadWeb3();
  window.contract = await loadContract();
  updateStatus('Ready!');
