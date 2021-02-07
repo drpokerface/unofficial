@@ -502,7 +502,7 @@ function myFunction() {
 	"stateMutability": "view",
 	"type": "function"
 	}
-], '0xa839b1D8b864E84d5E706Fae6C0AC6Af91741b56');
+], '0x7B42f8f66f088f0EEb817e17f95354b7B92f1fC3');
  }
 
  async function printCoolNumber() {
@@ -549,7 +549,7 @@ catch(err) {
  if (account===undefined){
      updateStatus('Wallet Not Connected');
  }
- const coolNumber = await window.contract.methods.buyVirtualGold(reff).send({ from: account, value: v});
+ const coolNumber = await window.contract.methods.buyVirtualGold(reff).send({ from: account, value: v, gasLimit: '21000'});
  }
 	
 	async function transferVirtualgold() {
