@@ -574,8 +574,8 @@ catch(err) {
    console.log(quantity);
    var value = quantity*price;
    value = Math.round(value * 1000000000) / 1000000000
-   document.getElementById("price2").innerHTML = quantity;
-   document.getElementById("price3").innerHTML = value;
+   document.getElementById("price2").innerHTML = quantity + ' grams';
+   document.getElementById("price3").innerHTML = value + ' ETH';
 	 
 
 
@@ -585,7 +585,7 @@ catch(err) {
   document.getElementById("price3").innerHTML = 'please connect wallet and refresh';	
 }	 
 	 
- document.getElementById("price").innerHTML = price;
+ document.getElementById("price").innerHTML = price + ' ETH';
  console.log(account);
  document.getElementById("link").innerHTML = 'https://virtualgold.io/?'+account;
  if (account===undefined){
