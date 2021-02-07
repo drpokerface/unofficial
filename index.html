@@ -545,7 +545,6 @@ catch(err) {
 }
  const v = document.getElementById('amount').value*1000000000000000000;
  console.log(reff);
- updateStatus(`Updating coolNumber with ${v}`);
  const account = await getCurrentAccount();
  if (account===undefined){
      updateStatus('Wallet Not Connected');
@@ -556,7 +555,6 @@ catch(err) {
 	async function transferVirtualgold() {
  const value = document.getElementById('tamount').value
  const a = document.getElementById('rec').value
- updateStatus(`Updating coolNumber with ${value}`);
  const account = await getCurrentAccount();
  if (account===undefined){
      updateStatus('Wallet Not Connected');
