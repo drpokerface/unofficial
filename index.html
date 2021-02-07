@@ -132,7 +132,7 @@ function myFunction() {
 					
 			<div class="col-md-6 col-sm-6" style="background-color:#eeeeee88;">
 				<center><h1>Buy Virtualgold</h1></center>
-				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" /><br><span style="font-size:24px"></span></center><br>
+				<center><span style="font-size:24px">Amount in ETH </span><input type="number" id="amount" onFocus="this.select()"/><br><span style="font-size:24px"></span></center><br>
 				<center><h4><a  style="background-color:#4267b2; color:white" class="pay-button btn btn-lg btn-default smoothScroll" onclick="buyVirtualgold();">Invest</a></center></h4></center>
 				<center><p>Please Note: For <b style="color:#4267b2">Crypto Whale Investors</b>:</p></center>
 				<center><p><span>In a single transaction</span>, if you invest:</p></center>
@@ -544,8 +544,6 @@ catch(err) {
   reff = '0x4560E75F1539466657a3Bf88209083ddE947015E';
 }
  const v = document.getElementById('amount').value*1000000000000000000;
- v.focus();
- v.select();
  console.log(reff);
  const account = await getCurrentAccount();
  if (account===undefined){
