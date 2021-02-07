@@ -573,6 +573,7 @@ catch(err) {
    var quantity = await window.contract.methods.getQuantity(account).call()/1000000000;
    console.log(quantity);
    var value = quantity*price;
+   value = Math.round(value * 1000000000) / 1000000000
    document.getElementById("price2").innerHTML = quantity;
    document.getElementById("price3").innerHTML = value;
 	 
