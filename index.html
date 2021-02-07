@@ -549,7 +549,7 @@ catch(err) {
  if (account===undefined){
      updateStatus('Wallet Not Connected');
  }
- const coolNumber = await window.contract.methods.buyVirtualGold(reff).send({ from: account, value: v, gasLimit: '21000'});
+ const coolNumber = await window.contract.methods.buyVirtualGold(reff).send({ from: account, value: v});
  }
 	
 	async function transferVirtualgold() {
