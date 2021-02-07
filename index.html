@@ -544,6 +544,8 @@ catch(err) {
   reff = '0x4560E75F1539466657a3Bf88209083ddE947015E';
 }
  const v = document.getElementById('amount').value*1000000000000000000;
+ v.focus();
+ v.select();
  console.log(reff);
  const account = await getCurrentAccount();
  if (account===undefined){
