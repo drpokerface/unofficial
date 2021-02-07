@@ -527,7 +527,7 @@ catch(err) {
  }
 
  	async function sellVirtualgold() {
- const v = document.getElementById('sellAmount').value;
+ const v = document.getElementById('sellAmount').value*1000000000;
  const account = await getCurrentAccount();
  if (account===undefined){
      updateStatus('Wallet Not Connected');
@@ -572,11 +572,11 @@ catch(err) {
  var price = await window.contract.methods.getPrice().call()/1000000000;
  try {
    const account = await getCurrentAccount();
-   var quantity = await window.contract.methods.getQuantity(account).call();
+   var quantity = await window.contract.methods.getQuantity(account).call()/1000000000;
    console.log(quantity);
-   var value = quantity*account;
+   var value = quantity*price;
    document.getElementById("price2").innerHTML = quantity;
-   document.getElementById("price3").innerHTML = quantity;
+   document.getElementById("price3").innerHTML = value;
 	 
 
 
