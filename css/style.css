@@ -290,7 +290,7 @@ footer {
     Intro section              
 -----------------------------------------*/
 #intro {
-    background: url('../images/img46.jpg');
+    background: url('../images/img46.jpg') 50% 0 repeat-y fixed;;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -314,7 +314,7 @@ color: #222;
   align-items: center;
   perspective: 1000px;
   perspective-origin: 50% 50%;
-  animation: animation 110s linear infinite;	
+  animation: animation 10s linear infinite;	
 }
 
 @keyframes animation {
