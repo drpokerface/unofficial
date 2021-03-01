@@ -291,10 +291,9 @@ footer {
 -----------------------------------------*/
 #intro {
     background: url('../images/img46.jpg') 50% 0 repeat-y fixed;
-    zoom: 80%;
     -webkit-background-size: cover;
     background-size: cover;
-    background-position: center center;
+    background-position: center 50%;
     color: #ffffff;
     display: -webkit-box;
     display: -webkit-flex;
