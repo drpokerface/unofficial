@@ -319,7 +319,7 @@ color: #222;
 
 @keyframes animation {
    100%{
-    background-position:0px -9000px;
+    background-position:0px 5000px;
   }
 }
 
